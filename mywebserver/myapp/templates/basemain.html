@@ -8,6 +8,8 @@
     <script src="../static/functionalities.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	
+	<link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+	
 	<link rel="stylesheet" href="../static/loginstyles.css">
 	<link rel="stylesheet" href="../static/bootstrap-3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/bootstrap-3.3.6/css/bootstrap-theme.min.css">
@@ -17,9 +19,9 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
-<body style="background-color:rgba(0,0,0,0.03);">
+<body style="background-color:rgba(0,0,0,0.03);font-family: vollkorn;">
 	<nav class="navbar navbar-inverse">
-	  <div class="container-fluid" style="background-color: purple;">
+	  <div class="container-fluid" style="">
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="#" style="color:white;">Deals Arround</a>
 	    </div>
@@ -28,36 +30,32 @@
 	  
 	<div class="container" style="color:purple;">
 		<h4>Hello Dear, Welcome to Deals Arround. . . . . . . . . . . . . .</h4><br/>
-		<h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<h4 style="text-align: right;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		It's my pleasure to have you here. . . . . . . . . . . . . . </h4>
 		<br/><br/>
 		<div class="row">
 			<div class="col-md-4">
-		      <a href="cinqueterre.jpg" class="circle">
-		        <img src="../static/guest1.jpeg" class="img-circle" alt="Cinque Terre" width="304" height="236">
+		      <a href="/guestuser" class="circle">
+		        <img src="../static/guest1.jpeg" class="img-circle" alt="Click here to Continue as a Guest">
 		      </a>
 		    </div>
 		    <div class="col-md-4">
-		      <a href="pulpitrock.jpg" class="circle">
-		        <img src="../static/signup1.png" class="img-circle" alt="Cinque Terre" width="304" height="236">
+		      <a href="/registration" class="circle">
+		        <img src="../static/signup1.png" class="img-circle" alt="Cinque Terre">
 		      </a>
 		    </div>
 		    <div class="col-md-4">
-		      <a href="moustiers-sainte-marie.jpg" class="circle">
-		        <img src="../static/login1.jpg" class="img-circle" alt="Cinque Terre" width="304" height="236">
-		        <div class="carousel-caption">
-		              <b>Click to Login</b>
-		        </div>
+		      <a href="/userlogin" class="circle">
+		        <img src="../static/login1.jpg" class="img-circle" alt="Cinque Terre">
 		      </a>
 		    </div>
 	    </div>
 	</div>
-	<br/><br/><br/><br/>
-	<hr />
-	<div class="container">	
-     	<div class='footer'>
+
+	<div id="footer">
+     	<nav class="navbar navbar-fixed-bottom">
 			<div class='content'>&copy; 2016-2017, Deals Arround Inc. All Rights Reserved.</div>
-	    </div>
-   	</div>
+	    </nav>
+	</div>
 </body>
 </html>

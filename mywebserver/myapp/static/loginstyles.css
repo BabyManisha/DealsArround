@@ -1,10 +1,43 @@
+@import url(https://fonts.googleapis.com/css?family=Vollkorn); /* to import google font style */ 
 body{
 	background-color: gray;
+	font-family: vollkorn;
 }
+
+.container-fluid{
+	background-color: purple;
+	border: 1px solod purple;
+	box-shadow: 5px 5px 20px #888888;
+	border-radius: 0px;	
+}
+
+.navbar-brand{
+	font-weight: bold;
+}
+
 h4{
 	box-shadow: 5px 5px 20px #888888;
 	background-color: transparent;
+	padding: 10px;
 }
+
 .row img{
 	box-shadow: 5px 5px 20px #888888;
+	width: 320px;
+	height: 220px;
+}
+
+.row img:hover{
+	width: 350px;
+	height: 250px;
+}
+
+#footer{
+	text-align: center;
+}
+
+.content{
+	height: 50px;
+	padding-top: 15px;
+	background-color: rgba(0,0,0,0.09);
 }

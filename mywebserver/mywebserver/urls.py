@@ -11,6 +11,14 @@ urlpatterns = patterns('',
     url(r'^admin/', admin.site.urls),
 	url(r'^smdeals', 'myapp.views.index', name='index'),
     
+    
+    url(r'^$', 'myapp.views.home', name='basehome'),
+    url(r'^registration', 'myapp.views.registration', name='registration'),
+    url(r'^userlogin', 'myapp.views.userlogin', name='userlogin'),
+    url(r'^guestuser', 'myapp.views.guestuser', name='guestuser'),
+    
+    #-----------------autotest-----------------------
+    
     url(r'^superuser', 'myapp.views.superuser', name='superuser'),
     url(r'^addContest', 'myapp.views.addContest', name='addContest'),
     url(r'^deleteContest', 'myapp.views.deleteContest', name='deleteContest'),
@@ -18,7 +26,7 @@ urlpatterns = patterns('',
 
     #------------Home---------------#
     
-    url(r'^$', 'myapp.views.home', name='home'),
+    
     url(r'^registration', 'myapp.views.registration', name='registration'),
     url(r'^checkUserName', 'myapp.views.checkUserName', name='checkUserName'),
     url(r'^regisuccess', 'myapp.views.regisuccess', name='regisuccess'),

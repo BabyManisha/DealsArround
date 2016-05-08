@@ -13,6 +13,11 @@ import boto.cloudformation
 def index(request):
 	return HttpResponse("Hello, AmmaNaanna and Dear God PLease Bless Me.. :) :) Thank you for Every Thing!!..Love you....");
 
+def guestuser(request):
+	contests=db1.contest.find()
+	return render(request, 'guestuser.html', {'contests':contests})
+
+#---------------autotest-------------------
 def superuser(request):
     contests=db1.contest.find()
     return render(request, 'superuser.html', {'contests':contests})
