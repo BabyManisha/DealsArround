@@ -17,6 +17,15 @@ urlpatterns = patterns('',
     url(r'^userlogin', 'myapp.views.userlogin', name='userlogin'),
     url(r'^guestuser', 'myapp.views.guestuser', name='guestuser'),
     
+    
+    #---------Login----------#
+    
+    url(r'^loginform', 'myapp.views.loginform', name='loginform'),
+    url(r'^loginvalidate', 'myapp.views.loginvalidate', name='loginvalidate'),
+    
+    
+    
+    
     #-----------------autotest-----------------------
     
     url(r'^superuser', 'myapp.views.superuser', name='superuser'),
@@ -31,10 +40,6 @@ urlpatterns = patterns('',
     url(r'^checkUserName', 'myapp.views.checkUserName', name='checkUserName'),
     url(r'^regisuccess', 'myapp.views.regisuccess', name='regisuccess'),
 
-    #---------Login----------#
-    
-    url(r'^loginform', 'myapp.views.loginform', name='loginform'),
-    url(r'^loginvalidate', 'myapp.views.loginvalidate', name='loginvalidate'),
     #------------Contestant Home------------#
 
     url(r'^contestanthome', 'myapp.views.contestanthome', name='contestanthome'),

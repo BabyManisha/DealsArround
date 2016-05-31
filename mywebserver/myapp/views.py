@@ -13,10 +13,94 @@ import boto.cloudformation
 def index(request):
 	return HttpResponse("Hello, AmmaNaanna and Dear God PLease Bless Me.. :) :) Thank you for Every Thing!!..Love you....");
 
+def home(request):
+    return render(request, 'dealshome.html', {})  
+
 def guestuser(request):
 	contests=db1.contest.find()
 	return render(request, 'guestuser.html', {'contests':contests})
 
+def loginform(request):
+    try:
+        del request.session['usertype']
+        del request.session['username']
+        return render(request, 'errorpage.html', {'emessage':"Sorry Session Expired :("})
+    except KeyError:
+        pass
+    return render(request, 'loginform.html', {})
+
+def registration(request):
+    return render(request, 'registration.html', {})
+
+def regisuccess(request):
+    ut = request.POST.get('usertype')
+    un = request.POST.get('username')
+    name = request.POST.get('name')
+    email = request.POST.get('email')
+    pswd = request.POST.get('pass')
+    if not pswd:
+        '''return HttpResponse("ERROR: You need a password to register")'''
+        return render(request, 'errorpage.html', {'emessage':"You need a password to register.. Please Register Again"})
+    a = hashlib.sha1(pswd)
+    hpswd = a.hexdigest()
+    user={"usertype":ut, "name":name, "username":un, "email":email, "password":hpswd, "status":"active"}
+    dbr = db1.users.insert(user)
+    if dbr :
+#         to = email
+#         gmail_user = 'techcontest2015@gmail.com'
+#         gmail_pwd = 'aviso2015'
+#         smtpserver = smtplib.SMTP("smtp.gmail.com",587)
+#         smtpserver.ehlo()
+#         smtpserver.starttls()
+#         smtpserver.ehlo
+#         smtpserver.login(gmail_user, gmail_pwd)
+#         header = 'To:' + to + '\n' + 'From: ' + gmail_user + '\n' + 'Subject:Registration Successfull \n'
+#         msg = header + '\n Thank you for Your Registration to ' + cn + '\n ' + ' UserName : ' +  un + '\n Password : ' + pswd + '\n \n'
+#         smtpserver.sendmail(gmail_user, to, msg)
+#         smtpserver.close()
+        #return HttpResponseRedirect('loginform')
+        return render(request, 'loginform.html', {})
+    else :
+        '''return HttpResponse("ERROR: Sorry Please Register Again")'''
+        return render(request, 'errorpage.html', {'emessage':"Sorry Something went wrong.. Please Register Again"})
+
+def loginvalidate(request):
+    usertype = request.POST.get('usertype')
+    username = request.POST.get('username1')
+    password = request.POST.get('password1')
+    a=hashlib.sha1(password)
+    password=a.hexdigest()
+    request.session['usertype'] = usertype
+    request.session['username'] = username
+    coll=db1.users.find_one({'usertype':usertype,'username':username,'password':password})
+    print "SMSMSMSMSMSMSMSMSMSMSMMSMSMMSMSMMSMSMMSMMSMSMSMSM"
+    print "\n"
+    print coll
+    print "\n"
+    print usertype
+    if not coll:
+        return HttpResponse("error")
+    else:
+    	if(usertype == "user"):
+        	return HttpResponseRedirect('/userhome')
+        if(usertype == "dealsprovider"):
+        	return HttpResponseRedirect('/dealsprovider')
+        else:
+        	return HttpResponse("error")
+
+def userhome(request):
+    contests=db1.contest.find()
+    return render(request, 'userhome.html', {'contests':contests})
+   
+def dealsproviderhome(request):
+    contests=db1.contest.find()
+    return render(request, 'dealsproviderhome.html', {'contests':contests})
+
+
+
+
+
+#	old views.....................
 #---------------autotest-------------------
 def superuser(request):
     contests=db1.contest.find()
@@ -108,7 +192,7 @@ def checkContestName(request):
 
 #------------Home---------------#
 
-def home(request):
+def oldhome(request):
     try:
         del request.session['contestname']
         del request.session['username']
@@ -129,7 +213,7 @@ def checkUserName(request):
     else:
         return HttpResponse("InValid")
 
-def regisuccess(request):
+def regisuccess1(request):
     cn = request.POST.get('contestname')
     un = request.POST.get('username')
     name = request.POST.get('name')
@@ -172,7 +256,7 @@ def regisuccess(request):
 
 #---------Login----------#
 
-def loginform(request):
+def loginform1(request):
     try:
         del request.session['contestname']
         del request.session['username']
@@ -191,7 +275,7 @@ def logout(request):
     cname=db1.contest.find({},{'contestname' : 1 , '_id' : 0})
     return render(request, 'loginform.html', {'cname':cname})
 
-def loginvalidate(request):
+def loginvalidate1(request):
     usertype = request.POST.get('usertype')
     contestname = request.POST.get('contestname1')
     username = request.POST.get('username1')

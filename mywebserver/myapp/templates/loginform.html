@@ -1,56 +1,63 @@
-{% extends "basemain.html" %}
-{% block content %}
-    <div class="container" id="main-container">
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Deals Arround</title>
+	<script src="/static/vue.js"></script>
+    <script src="/static/jquery.js"></script>
+    <script src="../static/regjs.js"></script>
+    <script src="../static/functionalities.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	
+	<link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+	
+	<link rel="stylesheet" href="../static/dealshomestyles.css">
+	<link rel="stylesheet" href="../static/bootstrap-3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/bootstrap-3.3.6/css/bootstrap-theme.min.css">
+    <script src="../static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+		
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:rgba(0,0,0,0.03);font-family: vollkorn;">
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#" style="color:white;">Deals Arround</a>
+	    </div>
+	  </div>
+	</nav>
+    <link rel="stylesheet" type="text/css" href="../static/style.css"/>
+    <div class="container" id="main-container" align="center">
         <div class="page" id="homePage">
-           <h3>Login To The Tech Contest . . . .</h3><hr/>
-                <div class="form-group" align="center" style="width:70%;padding-left:30%">
+           <h3>Login To Deals Arround . . . .</h3><hr/>
+                <div class="form-group">
                     <form class="regiForm form-horizontal" method="post" action="loginvalidate">
                      {% csrf_token %}
-                      <div class="form-group">
-                        <select name="contestname1" id="contestname1" class="form-control" >
-                            <option value="select" selected>Select ContestName</option>
-                            {% for c in cname %}
-                            <option value={{c.contestname}}>{{c.contestname}}</option>
-                            {% endfor %}
-                        </select>
-                       <br/>
+                      <fieldset id="first">
                         <select name="usertype" id="usertype" class="form-control" >
-                            <option value="select">Select User Type</option>
-                            <option value="contestant">Contestant</option>
-                            <option value="testadmin">Test Admin</option>
-                            <option value="testcreator">Test Creator</option>
-                            <option value="participantapprover">Participant Approver</option>
+                            <option value="user">User</option>
+		                  	<option value="dealsprovider">Deals Provider</option>
                         </select>
-                       <br/>
-                        <label for="inputEmail3" class="col-sm-2 control-label">UserName</label> 
-                        <div class="col-sm-10">
-                          <input name="username1" type="text" class="form-control" id="username1" placeholder="Username">
+                        <input name="username1" type="text" class="form-control" id="username1" placeholder="Username">
+                        <input name="password1" type="password" class="form-control" id="password1" placeholder="Password" required="yes">
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox"> Remember me
+                          </label>
                         </div>
-                      <br/>
-                      </div>
-                      <div class="form-group">
-                        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                        <div class="col-sm-10">
-                          <input name="password1" type="password" class="form-control" id="password1" placeholder="Password" required="yes">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                          <div class="checkbox">
-                            <label>
-                              <input type="checkbox"> Remember me
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                          <button type="submit" class="btn btn-default" name="submit" onClick="validateForm()"  >Log in</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                          <button type="reset" class="btn btn-default">Cancel</button>
-                        </div>
-                      </div>
+                        <br/>
+                        <button type="submit" class="btn btn-default" name="submit" onClick="validateForm()"  >Log in</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="reset" class="btn btn-default">Cancel</button>
+                    </fieldset>
                     </form>
                 </div>
 		</div>
 	</div>
-{% endblock %}
+	<div id="footer">
+     	<nav class="navbar navbar-fixed-bottom">
+			<div class='content'>&copy; 2016-2017, Deals Arround Inc. All Rights Reserved.</div>
+	    </nav>
+	</div>
+</body>
+</html>
