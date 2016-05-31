@@ -5,13 +5,12 @@ body{
 }
 
 .container-fluid{
-	background-color: purple;
-	border: 1px solod purple;
+	background-color: #2b98f0;
 	box-shadow: 5px 5px 20px #888888;
-	border-radius: 0px;	
 }
 
 .navbar-brand{
+	margin-left: 50px;
 	font-weight: bold;
 }
 
@@ -34,10 +33,12 @@ h4{
 
 #footer{
 	text-align: center;
+	
 }
 
 .content{
 	height: 50px;
 	padding-top: 15px;
 	background-color: rgba(0,0,0,0.09);
+	box-shadow: 15px 15px 15px 15px #2b98f0;
 }
