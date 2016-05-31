@@ -73,18 +73,13 @@ def loginvalidate(request):
     request.session['usertype'] = usertype
     request.session['username'] = username
     coll=db1.users.find_one({'usertype':usertype,'username':username,'password':password})
-    print "SMSMSMSMSMSMSMSMSMSMSMMSMSMMSMSMMSMSMMSMMSMSMSMSM"
-    print "\n"
-    print coll
-    print "\n"
-    print usertype
     if not coll:
         return HttpResponse("error")
     else:
     	if(usertype == "user"):
         	return HttpResponseRedirect('/userhome')
         if(usertype == "dealsprovider"):
-        	return HttpResponseRedirect('/dealsprovider')
+        	return HttpResponseRedirect('/dealsproviderhome')
         else:
         	return HttpResponse("error")
 

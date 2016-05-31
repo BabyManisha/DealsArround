@@ -23,6 +23,11 @@ urlpatterns = patterns('',
     url(r'^loginform', 'myapp.views.loginform', name='loginform'),
     url(r'^loginvalidate', 'myapp.views.loginvalidate', name='loginvalidate'),
     
+    #-------------------users----------------#
+    
+    url(r'^userhome', 'myapp.views.userhome', name='userhome'),
+    url(r'^dealsproviderhome', 'myapp.views.dealsproviderhome', name='dealsproviderhome'),
+    
     
     
     
