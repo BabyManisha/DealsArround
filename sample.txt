@@ -1,1 +1,3 @@
-this is a smaple file to test the git repo
+
+
+this is a smaple file to test the git repository
